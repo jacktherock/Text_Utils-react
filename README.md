@@ -2,6 +2,14 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Deployment Text_Utils-react
+
+This is a deployment of Text_Utils-react with the help of Github Pages on Github.
+
+[Text_Utils-react](https://jacktherock.github.io/Text_Utils-react/)
+
+Documentation: [Deployment | Create React App](https://create-react-app.dev/docs/deployment/)
+
 ## Available Scripts
 
 In the project directory, you can run:
