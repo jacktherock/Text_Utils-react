@@ -10,7 +10,6 @@ import {
   Route
 } from "react-router-dom";
 
-
 function App() {
   const [mode, setMode] = useState('light'); // Whether dark mode is enabled or not
   const [alert, setAlert] = useState(null);
@@ -30,7 +29,7 @@ function App() {
       setMode('dark');
       document.body.style.backgroundColor = '#042743';
       showAlert("Dark mode has been enabled", "success");
-      document.title = 'TextUtils - Dark Mode';
+      // document.title = 'TextUtils - Dark Mode'; // this shows on title bar of site
       // setInterval(() => {
       //   document.title = 'TextUtils is Amazing Mode';
       // }, 2000);
@@ -42,26 +41,34 @@ function App() {
       setMode('light');
       document.body.style.backgroundColor = 'white';
       showAlert("Light mode has been enabled", "success");
-      document.title = 'TextUtils - Light Mode';
+      // document.title = 'TextUtils - Light Mode'; 
     }
   }
+
   return (
     <>
       {/* <Navbar title="TextUtils" aboutText="About TextUtils" /> */}
       {/* <Navbar/> */}
+
       <Router>
+        {/* NavBar */}
         <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} />
+
+        {/* Alert */}
         <Alert alert={alert} />
         <div className="container my-3">
           <Switch>
-            {/* /users --> Component 1
-        /users/home --> Component 2 */}
+
+            {/* About */}
             <Route exact path="/about">
-              <About heading="About Us"/>
+              <About heading="About Us" />
             </Route>
+
+            {/* Home  */}
             <Route exact path="/">
               <TextForm showAlert={showAlert} heading="Enter the text to analyze below" mode={mode} />
             </Route>
+
           </Switch>
         </div>
       </Router>
