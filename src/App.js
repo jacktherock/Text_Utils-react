@@ -41,7 +41,7 @@ function App() {
       setMode('light');
       document.body.style.backgroundColor = 'white';
       showAlert("Light mode has been enabled", "success");
-      // document.title = 'TextUtils - Light Mode'; 
+      // document.title = 'TextUtils - Light Mode';
     }
   }
 
@@ -61,12 +61,12 @@ function App() {
 
             {/* About */}
             <Route exact path="/about">
-              <About heading="About Us" />
+              <About heading="About Us" mode={mode} />
             </Route>
 
             {/* Home  */}
             <Route exact path="/">
-              <TextForm showAlert={showAlert} heading="Enter the text to analyze below" mode={mode} />
+              <TextForm showAlert={showAlert} heading="Try TextUtils - Word Counter, Character Counter, Remove Extra Spaces" mode={mode} />
             </Route>
 
           </Switch>
