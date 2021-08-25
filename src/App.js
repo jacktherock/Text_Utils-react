@@ -59,15 +59,15 @@ function App() {
         <div className="container my-3">
           <Switch>
 
-            {/* About */}
-            <Route exact path="/about">
-              <About heading="About Us" mode={mode} />
-            </Route>
-
             {/* Home  */}
             <Route exact path="/">
               <TextForm showAlert={showAlert} heading="Try TextUtils - Word Counter, Character Counter, Remove Extra Spaces" mode={mode} />
             </Route>
+
+            {/* About */}
+            <Route exact path="/about">
+              <About heading="About Us" mode={mode} />
+            </Route>     
 
           </Switch>
         </div>

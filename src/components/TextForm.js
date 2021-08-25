@@ -38,9 +38,8 @@ export default function TextForm(props) {
 
     // Remove New line
     const handleNewLineRmClick = () => {
-        let someText = text.replace(/(\n|\r)/gm, "");
-        let newText = someText;
-        setText(newText)
+        let someText = text.split(/\n/);
+        setText(someText.join(" "))
         props.showAlert("Removed New Lines", "success")
     }
 
@@ -68,10 +67,7 @@ export default function TextForm(props) {
 
     // Copy Text
     const handleCopy = () => {
-        var text = document.getElementById("myBox");
-        text.select();
-        document.getSelection().removeAllRanges();
-        navigator.clipboard.writeText(text.value);
+        navigator.clipboard.writeText(text);
         props.showAlert("Text Copied to Clipboard", "success")
     }
 
@@ -95,7 +91,7 @@ export default function TextForm(props) {
 
             <div className="container my-3" style={{ color: props.mode === 'dark' ? 'white' : '#042743' }}>
                 <h2>Your text summary</h2>
-                <p> <b>{text.split(" ").filter((element) => { return element.length !== 0 }).length}</b> words and <b>{text.length}</b> characters</p>
+                <p> <b>{text.split(/\s+/).filter((element) => { return element.length !== 0 }).length}</b> words and <b>{text.length}</b> characters</p>
                 <p>{0.008 * text.split(" ").filter((element) => { return element.length !== 0 }).length} Minutes read</p>
                 <h2>Preview</h2>
                 <p>{text.length > 0 ? text : "Nothing to Preview !"}</p>
